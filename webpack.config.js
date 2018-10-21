@@ -1,5 +1,5 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
+const ClosurePlugin = require('closure-webpack-plugin');
 
 function tryResolve_(url, sourceFilename) {
     // Put require.resolve in a try/catch to avoid node-sass failing with cryptic libsass errors
@@ -15,10 +15,10 @@ function tryResolve_(url, sourceFilename) {
 
 function tryResolveScss(url, sourceFilename) {
     // Support omission of .scss and leading _
-    const normalizedUrl = url.endsWith('.scss') ? url : `${url}.scss`;
-    return tryResolve_(normalizedUrl, sourceFilename) ||
-        tryResolve_(path.join(path.dirname(normalizedUrl), `_${path.basename(normalizedUrl)}`),
-            sourceFilename);
+    const normalizedUrl = url.endsWith('.scss')
+        ? url
+        : `${url}.scss`;
+    return tryResolve_(normalizedUrl, sourceFilename) || tryResolve_(path.join(path.dirname(normalizedUrl), `_${path.basename(normalizedUrl)}`), sourceFilename);
 }
 
 function materialImporter(url, prev) {
@@ -28,54 +28,61 @@ function materialImporter(url, prev) {
             file: resolved || url
         };
     }
-    return {
-        file: url
-    };
+    return {file: url};
 }
 
 module.exports = {
-    entry: ['./app.scss', './app.js'],
+    entry: [
+        './app.scss', './app.js'
+    ],
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.scss$/,
-                use: [{
+                use: [
+                    {
                         loader: 'file-loader',
                         options: {
-                            name: 'bundle.css',
-                        },
-                    },
-                    {
+                            name: 'bundle.css'
+                        }
+                    }, {
                         loader: 'extract-loader'
-                    },
-                    {
+                    }, {
                         loader: 'css-loader'
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => [autoprefixer()],
-                        },
-                    },
-                    {
+                    }, {
+                        loader: 'postcss-loader'
+                    }, {
                         loader: 'sass-loader',
                         options: {
                             importer: materialImporter
                         }
                     }
+                ]
+            }, {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['env'],
+                    plugins: ['transform-object-assign']
                 }
-            ]
-        },
-        {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015'],
-                plugins: ['transform-object-assign']
-            },
-        }
-    ],
-},
+            }
+        ]
+    },
+    plugins: [
+        new ClosurePlugin({
+            mode: 'STANDARD',
+            // compilation_level: 'BUNDLE'
+        }, {
+            // compiler flags here
+            //
+            // for debuging help, try these:
+            //
+            // formatting: 'PRETTY_PRINT'
+            // debug: true
+            warning_level: 'QUIET'
+        })
+    ]
 };

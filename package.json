@@ -1,24 +1,47 @@
-{  
-   "name":"mdc-quickstart",
-   "version":"1.0.0",
-   "description":"",
-   "private":true,
-   "scripts":{  
-      "build":"webpack -p",
-      "start":"webpack-dev-server"
-   },
-   "keywords":[  
-
-   ],
-   "author":"Richie Bendall",
-   "license":"MIT",
-   "devDependencies":{  
-      "css-loader":"^1.0.0",
-      "extract-loader":"^3.0.0",
-      "file-loader":"^2.0.0",
-      "node-sass":"^4.9.3",
-      "sass-loader":"^7.1.0",
-      "webpack":"webpack-3",
-      "webpack-dev-server":"webpack-3"
-   }
+{
+    "name": "mdc-quickstart",
+    "version": "1.0.0",
+    "description": "The easiest way to start using **Material Design Components for the Web**. This repository is adapted from Google's [Getting Started](https://material.io/develop/web/docs/getting-started/) guide on the official Material Design website.",
+    "private": true,
+    "devDependencies": {
+        "@material/ripple": "^0.40.1",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.7.0",
+        "closure-webpack-plugin": "^1.1.1",
+        "css-loader": "^1.0.0",
+        "cssnano": "^4.1.5",
+        "extract-loader": "^3.0.0",
+        "file-loader": "^2.0.0",
+        "html5shiv": "^3.7.3",
+        "node-sass": "^4.9.4",
+        "normalize.css": "^8.0.0",
+        "postcss-loader": "^3.0.0",
+        "postcss-preset-env": "^6.1.2",
+        "sass-loader": "^7.1.0",
+        "webpack": "webpack-3",
+        "webpack-dev-server": "webpack-3"
+    },
+    "scripts": {
+        "build": "webpack -p --config webpack.config.js",
+        "start": "webpack-dev-server --config webpack.config.js"
+    },
+    "browserslist": [
+        ">= 0%"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Richienb/mdc-quickstart.git"
+    },
+    "keywords": [
+        "mdc",
+        "mdc-web",
+        "quickstart"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Richienb/mdc-quickstart/issues"
+    },
+    "homepage": "https://github.com/Richienb/mdc-quickstart#readme"
 }

@@ -1,2 +1,9 @@
-import {MDCRipple} from '@material/ripple/index';
-const ripple = new MDCRipple(document.querySelector('.foo-button'));
+@import "@material/button/mdc-button"; // MDC Button
+
+.main-button {
+    // The button on the page
+    @include mdc-button-ink-color(red);
+    @include mdc-states(red);
+}
+
+@import 'node_modules/normalize.css/normalize.css'; // Normalize CSS resets
