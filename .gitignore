@@ -1,3 +1,7 @@
+# Bundled files
+bundle.js
+bundle.css
+
 # Logs
 logs
 *.log
