@@ -1,6 +1,6 @@
 # MDC Quickstart
 
-The easiest way to start using **Material Design Components for the Web**. This codebase is adapted from Google's [Getting Started](https://material.io/develop/web/docs/getting-started/) guide on the official Material Design website.
+An easy way to start using **Material Design Components for the Web**. This codebase is adapted from Google's [Getting Started](https://material.io/develop/web/docs/getting-started/) guide on the official Material Design website.
 
 ## How to start
 
