@@ -18,7 +18,7 @@
         "node-sass": "^4.9.4",
         "normalize.css": "^8.0.0",
         "postcss-loader": "^3.0.0",
-        "postcss-preset-env": "^6.1.2",
+        "postcss-preset-env": "^6.6.0",
         "sass-loader": "^7.1.0",
         "webpack": "webpack-3",
         "webpack-dev-server": "webpack-3"
