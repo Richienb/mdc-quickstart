@@ -4,7 +4,7 @@
     "description": "The easiest way to start using **Material Design Components for the Web**. This repository is adapted from Google's [Getting Started](https://material.io/develop/web/docs/getting-started/) guide on the official Material Design website.",
     "private": true,
     "devDependencies": {
-        "@material/ripple": "^3.0.0",
+        "@material/ripple": "^3.2.0",
         "babel-core": "^6.26.3",
         "babel-loader": "^7.1.5",
         "babel-plugin-transform-object-assign": "^6.22.0",
