@@ -12,7 +12,7 @@
         "closure-webpack-plugin": "^1.2.0",
         "css-loader": "^3.0.0",
         "cssnano": "^4.1.10",
-        "extract-loader": "^3.1.0",
+        "extract-loader": "^5.0.1",
         "file-loader": "^2.0.0",
         "html5shiv": "^3.7.3",
         "node-sass": "^4.12.0",
